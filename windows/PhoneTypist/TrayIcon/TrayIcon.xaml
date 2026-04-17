@@ -1,0 +1,31 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:tb="http://www.hardcodet.net/taskbar"
+                    xmlns:local="clr-namespace:PhoneTypist">
+
+    <tb:TaskbarIcon x:Key="NotifyIcon"
+                    IconSource="{Binding TrayIconSource}"
+                    ToolTipText="{Binding TrayToolTipText}"
+                    DoubleClickCommand="{Binding ShowQrWindowCommand}">
+
+        <tb:TaskbarIcon.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Show QR Code"
+                          Command="{Binding ShowQrWindowCommand}" />
+                <Separator />
+                <MenuItem Header="{Binding StatusText}"
+                          IsEnabled="False" />
+                <MenuItem Header="{Binding LastReceivedDisplay}"
+                          IsEnabled="False" />
+                <Separator />
+                <MenuItem Header="Settings"
+                          IsEnabled="False" />
+                <Separator />
+                <MenuItem Header="Exit"
+                          Command="{Binding ExitCommand}" />
+            </ContextMenu>
+        </tb:TaskbarIcon.ContextMenu>
+
+    </tb:TaskbarIcon>
+
+</ResourceDictionary>

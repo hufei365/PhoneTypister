@@ -1,0 +1,103 @@
+<Window x:Class="PhoneTypist.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PhoneTypist"
+        Width="400" Height="480"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        ShowInTaskbar="True"
+        Background="#F5F5F5">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0"
+                   Text="PhoneTypist"
+                   FontSize="24" FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,15" />
+
+        <!-- QR Code Image -->
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="8"
+                Padding="15"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <Image x:Name="QrCodeImage"
+                   Width="250" Height="250"
+                   RenderOptions.BitmapScalingMode="NearestNeighbor" />
+        </Border>
+
+        <!-- Connection Info -->
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Margin="0,15,0,0">
+            <TextBlock x:Name="IpAddressText"
+                       FontSize="14"
+                       HorizontalAlignment="Center"
+                       Foreground="#555" />
+            <TextBlock x:Name="PortText"
+                       FontSize="14"
+                       HorizontalAlignment="Center"
+                       Foreground="#555"
+                       Margin="0,4,0,0" />
+        </StackPanel>
+
+        <!-- Status -->
+        <Border Grid.Row="3"
+                CornerRadius="6"
+                Padding="12,8"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Center">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="#E3F2FD" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Status}" Value="Connected">
+                            <Setter Property="Background" Value="#E8F5E9" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Status}" Value="Error">
+                            <Setter Property="Background" Value="#FFEBEE" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <TextBlock HorizontalAlignment="Center"
+                       FontSize="14"
+                       FontWeight="Medium">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Text" Value="Scan QR code to pair" />
+                        <Setter Property="Foreground" Value="#1565C0" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Status}" Value="Connected">
+                                <Setter Property="Text" Value="Connected" />
+                                <Setter Property="Foreground" Value="#2E7D32" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Status}" Value="Error">
+                                <Setter Property="Text" Value="Connection error" />
+                                <Setter Property="Foreground" Value="#C62828" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Border>
+
+        <!-- Hint -->
+        <TextBlock Grid.Row="4"
+                   Text="Use iPhone to scan this QR code"
+                   FontSize="12"
+                   Foreground="#999"
+                   HorizontalAlignment="Center"
+                   Margin="0,10,0,0" />
+    </Grid>
+</Window>

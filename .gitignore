@@ -1,0 +1,64 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build outputs
+**/bin/
+**/obj/
+**/Build/
+**/DerivedData/
+*.exe
+*.dll
+*.pdb
+
+# iOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+Pods/
+*.xcworkspace
+!*.xcworkspace/contents.xcworkspacedata
+*.xcuserstate
+*.xcuserdatad
+xcuserdata/
+Config.xcconfig
+
+# .NET
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.local.md
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# OpenCode memory (project-specific)
+.opencode/memory/
